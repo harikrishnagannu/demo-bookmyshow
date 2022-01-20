@@ -1,0 +1,24 @@
+#%RAML 1.0 DataType
+type: object
+description: Theater info
+properties:
+  theaterName?: string
+  screenID?: integer
+  numberOfseats?: integer
+  location?: string
+  price?: number
+  startTime?: datetime-only
+  endTime?: datetime-only
+  movieID?: integer
+
+example:
+  {
+    theaterName: "AMB",
+    screenID: 123,
+    numberOfseats: 30,
+    location: "Kondapur",
+    price: 350.00,
+    startTime: 2022-01-07T20:00:00.0,
+    endTime: 2022-01-07T23:00:00.0,
+    movieID: 1
+}

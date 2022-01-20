@@ -1,0 +1,11 @@
+%dw 2.0
+
+type auto_60b3c4c2_ac19_47d2_b330_40de0239db43_Input_Payload = {
+  reviews?: Number, 
+  director?: String, 
+  language: String, 
+  movieID?: Number, 
+  movieName: String, 
+  _?: Any
+} {"description": "movie managment"}
+

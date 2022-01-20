@@ -1,0 +1,14 @@
+%dw 2.0
+
+type auto_6c024702_40c2_4312_ae59_c8e12404bc1b_Input_Payload = {
+  screenID?: Number, 
+  numberOfseats?: Number, 
+  price?: Number, 
+  location?: String, 
+  startTime?: String, 
+  movieID?: Number, 
+  endTime?: String, 
+  theaterName?: String, 
+  _?: Any
+} {"description": "Theater info"}
+

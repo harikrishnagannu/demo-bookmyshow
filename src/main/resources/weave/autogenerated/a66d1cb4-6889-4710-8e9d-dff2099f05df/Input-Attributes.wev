@@ -1,0 +1,23 @@
+%dw 2.0
+
+type auto_a66d1cb4_6889_4710_8e9d_dff2099f05df_Input_Attributes = {|
+  clientCertificate?: {|
+    publicKey?: {|  |}, 
+    "type"?: String, 
+    encoded?: Binary
+  |}, 
+  headers: {|  |}, 
+  listenerPath: String, 
+  method: String, 
+  queryParams: {|  |}, 
+  queryString: String, 
+  relativePath: String, 
+  remoteAddress: String, 
+  requestPath: String, 
+  requestUri: String, 
+  scheme: String, 
+  uriParams: {| theaterID: String |}, 
+  version: String, 
+  localAddress: String
+|}
+

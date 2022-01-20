@@ -1,0 +1,110 @@
+#%RAML 1.0
+title: bookMyShow
+protocols: [HTTP,HTTPS]
+mediaType: 
+- application/json
+version: v1
+types:
+  myMovie: !include DataTypes/moviedataType.raml
+  theater: !include DataTypes/theaterDataType.raml
+traits:
+    movie: !include Traits/movieTrait.raml
+
+/movies:
+  get:
+    is: [movie]
+    responses:
+      200:
+        body:
+          application/json:
+            type: myMovie[]
+  post:
+    description: 
+    body:
+      application/json:
+        type: myMovie
+    responses:
+      201:
+        body:
+          application/json:
+            example: |
+             {"movieID": 12345 }
+      400:
+        body:
+          application/json:
+            example: Invalid token example
+            description: Invalid Token
+      401:
+        body:
+          application/json:
+            example: Unauthorized example
+            description: Unauthorized
+      403:
+        body:
+          application/json:
+            example: Forbidden example
+            description: Forbidden
+      500:
+        body:
+          application/json:
+            example: Bad Response from Authorization Server Example.
+            description: Bad response from authorization server.
+/theaters:
+  post:
+    body:
+      application/json:
+        type: theater
+    responses:
+      201:
+        body:
+          application/json:
+            example: |
+             {"TheaterID": 123}
+  get:
+    queryParameters:
+      movieID:
+        displayName: movieID
+        type: integer
+        description: Get theater based on Movie ID
+        example:
+          12345
+        required: false
+    responses:
+      200:
+        body:
+          application/json:
+            type: theater[]
+/book-tickets:
+  put:
+    body:
+      application/json:
+        properties:
+          movieName:
+            type: string
+            required: true
+          theaterName:
+            type: string
+            required: true
+          noOfTickets:
+            type: number
+            required: true
+          seatNos:
+            type: array
+            required: true
+        example:
+          {
+            movieName: "RRR",
+            theaterName: "PVR",
+            noOfTickets: 3,
+            seatNos: ["A1","B2","C3"]
+
+          }
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                Ticketno: 1234,
+                seats: ["A1","B2","C3"]
+              }
